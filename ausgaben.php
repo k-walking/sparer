@@ -10,10 +10,8 @@ var_dump($_SESSION['userid']);
 
  ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -41,12 +39,10 @@ var_dump($_SESSION['userid']);
     <![endif]-->
 
 </head>
-
 <body>
-
     <div id="wrapper">
 
-       <?php include ("sidebar.php"); ?>
+        <?php include ("sidebar.php"); ?>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -63,15 +59,7 @@ var_dump($_SESSION['userid']);
 						 
 						if(isset($_GET['send'])) {
 							$error = false;
-							
-							
-							
-							 	
-							
-							
-							
-							
-							
+						
 							//Keine Fehler, wir können den Nutzer registrieren
 							//Check database connection
 							if( $mysqli -> connect_error){
@@ -92,17 +80,14 @@ var_dump($_SESSION['userid']);
 									// for debugging purposes use: v
 									var_dump($mysqli->error); exit;
 									return false;
-									}
-							}
-								
-								
-							
+								}
+							}							
 						}
 						 
 						if($showFormular) {
-						?>
-						 
-						<form action="?send=1" method="post">
+					?>
+					 
+					<form action="?send=1" method="post">
 						Preis:<br>
 						<input type="text" size="40" maxlength="250" name="price"><br><br>
 						
@@ -115,17 +100,12 @@ var_dump($_SESSION['userid']);
 						Laden:<br>
 						<input type="text" size="40"  maxlength="250" name="store"><br>
 						
-						 
 						<input type="submit" value="Abschicken">
-						</form>
+					</form>
 						 
 						<?php
 						} //Ende von if($showFormular)
 						?>
-
-						
-                        
-						
 							
                     </div>
                 </div>
@@ -138,9 +118,6 @@ var_dump($_SESSION['userid']);
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-	
-	
-	
 	<script src="jquery-ui-1.12.0.custom/jquery-ui.min.js"></script>
 	<link rel="stylesheet" href="jquery-ui-1.12.0.custom/jquery-ui.min.css">
 	
@@ -149,18 +126,16 @@ var_dump($_SESSION['userid']);
 
     <!-- Menu Toggle Script -->
     <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-	$(document).ready(function(){
-		$("#datepicker").datepicker({
-			dateFormat: "yy.mm.dd"
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
 		});
-		
-	});
-    </script>
-
+		$(document).ready(function(){
+			$("#datepicker").datepicker({
+				dateFormat: "yy.mm.dd"
+			});
+			
+		});
+	</script>
 </body>
-
 </html>

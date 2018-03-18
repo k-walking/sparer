@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +34,25 @@
 <body>
     <div id="wrapper">
 
-       <?php include('sidebar_default.php');?>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+				<li class="sidebar-brand">
+                    <a href="#">Haushaltsrechner</a>
+                </li>             
+                <li>
+                    <a href="registrierung.php">Registrieren</a>
+                </li>
+                <li>
+                    <a href="login.php">Anmelden</a>
+                </li>
+				<li>
+                    <a href="calculation.php">Rechner</a>
+                </li>				
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">

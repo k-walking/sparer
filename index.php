@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +44,11 @@
                         <p>Dieses Programm soll dir dabei helfen deine Ausgaben und Einnahmen im Blick zubehalten.</p>
                         <p>Um ein neues Haushaltskonto zu Erstellen wähle Registrieren.</p>
 						<p>Eine Schnelle Rechnung kannst du mit dem Rechner durchführen</p>
+						<?php
+							if(isset($_SESSION['u_id'])){
+								echo 'you are logged in';
+							}
+						?>
                         
                     </div>
                 </div>

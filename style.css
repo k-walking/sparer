@@ -1,5 +1,35 @@
 /*StyleCSS Profile*/
 
+/*general*/
+.relative-box {
+	position: relative;
+}
+.center{
+	margin: auto !important;
+}
+
+.center-horizontal{
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.center-vertical{
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.header-big {
+	font-weight: 700px;
+}
+
+.header-middle {
+	font-weight: 700px;
+}
+
 .page {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
@@ -75,3 +105,39 @@ h3 {
 .box-header {
 	opacity: 1;
 }
+
+/*formular elements*/
+#register-form {
+	position: absolute !important;
+	width: 400px;
+	height: auto;
+	top: 30px; 
+	left: 0; 
+	bottom: 0; 
+	right: 0;
+}
+
+.sidebar-form {
+	text-indent: 5px;
+}
+
+.custom-form-group {
+		
+	
+}
+
+.custom-form{
+	border-radius: 0px !important;
+	
+}
+
+.custom-btn {
+	border-radius: 0px !important;
+	width:auto;
+	margin-left:auto !important;
+	margin-right:auto !important;}
+
+
+
+
+

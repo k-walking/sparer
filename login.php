@@ -5,7 +5,6 @@ $mysqli = new mysqli( 'localhost', 'root', '', 'test2');
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -33,7 +32,6 @@ $mysqli = new mysqli( 'localhost', 'root', '', 'test2');
     <![endif]-->
 
 </head>
-
 <body>
 <!--TODO: content, stylen-->
     <div id="wrapper">
@@ -69,12 +67,15 @@ $mysqli = new mysqli( 'localhost', 'root', '', 'test2');
 								$email = $_POST['email'];
 								$password = $_POST['passwort'];
 								
-                                 $query = "SELECT * FROM users WHERE email = '$email' ";
-                                
+								// mysqli_query macht eine Datenbankabfrage die im query steht.
+								// Der Rückgabewert ist True, False oder ein mysqli_result object ,
+								// bei SELECT, SHOW, DESCRIBE, or EXPLAIN queries.
+                                $query = "SELECT * FROM users WHERE email = '$email' ";
 								$result = mysqli_query($mysqli, $query);
                                 
                                 //var_dump($result);
                                 
+								//datentyp von fetch_row ist mixed(akzeptiert mehrere Typen) gettype()
                                 if ($result){
                                     $user_array = mysqli_fetch_row($result);
                                     $user_email = $user_array[1];
@@ -96,26 +97,22 @@ $mysqli = new mysqli( 'localhost', 'root', '', 'test2');
                                 } else {
                                     $errorMessage = "Kein Ergebnis aus der Datenbankabfrage";
                                 }
-                                                     					
 							}
 							
-							
-							 
-	
 							if(isset($errorMessage)) {
 								echo $errorMessage;
 							}
 							?>
 							 
 							<form action="?login=1" method="post">
-							E-Mail:<br>
-							<input type="email" size="40" maxlength="250" name="email"><br><br>
-							
-							 
-							Dein Passwort:<br>
-							<input type="password" size="40"  maxlength="250" name="passwort"><br>
-							 
-							<input type="submit" value="Abschicken">
+								E-Mail:<br>
+								<input type="email" size="40" maxlength="250" name="email"><br><br>
+								
+								 
+								Dein Passwort:<br>
+								<input type="password" size="40"  maxlength="250" name="passwort"><br>
+								 
+								<input type="submit" value="Abschicken">
 							</form> 
                         	
                     </div>
