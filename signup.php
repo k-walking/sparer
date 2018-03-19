@@ -1,11 +1,3 @@
-<?php 
-/*session_start();
-$mysqli = new mysqli( 'localhost', 'root', '', 'test2');
-
-$statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");*/
-/*die(var_dump($statement));*/
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,8 +90,5 @@ $statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");*/
 </body>
 
 </html>
- 
-<?php 
 
-?>
  

@@ -1,5 +1,6 @@
 <?php
 	session_start();
+    echo "hello World"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,13 @@
 <body>
     <div id="wrapper">
 
-       <?php include('sidebar_default.php');?>
+       <?php 
+            if(isset($_SESSION['u_id'])) {
+                include('sidebar_usr.php');
+            } else {
+                include('sidebar_default.php');
+            }
+        ?>
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
