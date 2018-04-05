@@ -16,26 +16,26 @@ if(isset($_POST['signup'])){
 				
 
 		header("Location: ../signup.php?signup=empty");
-		exit('asdfasdf');
+		exit();
 		$error = true;
 	} else {
 		//check if input characters are valid
 		if(!preg_match("/^[a-zA-Z]*$/", $first)){
 			
 			header("Location: ../signup.php?signup=invalid");
-			exit('!!!!!!');
+			exit();
 		} else {
 			//Check if email isvalid
 			if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				
 				header("Location: ../signup.php?signup=email");
-				exit('!!!!!!');
+				exit();
 			} else{
 				
 				if($pwd != $pwd_check) {
 					
 					header("Location: ../signup.php?signup=pwd");
-					exit('!!!!!!');				
+					exit();				
 				} else {
 					$sql = "SELECT * FROM users WHERE user_uid = '$uid' ";
 					$result = mysqli_query($conn, $sql);

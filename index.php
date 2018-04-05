@@ -1,6 +1,5 @@
 <?php
 	session_start();
-    echo "hello World"
 ?>
 <!DOCTYPE html>
 <html lang="en">

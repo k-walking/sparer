@@ -1,12 +1,25 @@
 <?php
-session_start();
-$mysqli = new mysqli( 'localhost', 'root', '', 'test2');
 
-if(!isset($_SESSION['userid'])) {
-	die('Bitte zuerst <a href="login.php">einloggen</a>');
+session_start();
+
+if(!isset($_SESSION['u_id'])){
+	die('Bitte zuerst <a href="index.php">einloggen</a>');
 }
 
-var_dump($_SESSION['userid']);
+if(!$_POST){
+	$shop_uid = '';
+	$shop_price = '';
+	$shop_object = '';
+	$shop_store = '';
+	$shop_date_bought = '';
+	$shop_time_add = '';
+}
+
+date_default_timezone_set("Europe/Berlin");
+$timestamp = time();
+
+$datum = date("d.m.Y", $timestamp);
+$uhrzeit = date("H:i", $timestamp);
 
  ?>
 
@@ -20,10 +33,10 @@ var_dump($_SESSION['userid']);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Profile</title>
+    <title>Ausgaben</title>
 	
 	<!-- Style CSS -->
-	 <link href="style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
 	
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -39,10 +52,10 @@ var_dump($_SESSION['userid']);
     <![endif]-->
 
 </head>
-<body>
+<body style="bodycolor">
     <div id="wrapper">
 
-        <?php include ("sidebar.php"); ?>
+        <?php include ("sidebar_usr.php"); ?>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -50,7 +63,7 @@ var_dump($_SESSION['userid']);
                 <div clavss="row">
 					<div class="col-md-12">
 					<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-						<h1>pfandflaschen rechner</h1>
+						<h1>Shopped</h1>
 					</div>
                     <div class="col-md-12 pfandbox">
 					
@@ -58,27 +71,32 @@ var_dump($_SESSION['userid']);
 						$showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
 						 
 						if(isset($_GET['send'])) {
+							
 							$error = false;
+							
+							include_once 'includes/dbh.inc.php';
 						
 							//Keine Fehler, wir können den Nutzer registrieren
 							//Check database connection
-							if( $mysqli -> connect_error){
+							if( $conection -> conect_error){
 								return false;
 							} else{
-								if( $stmt = $mysqli->prepare("INSERT INTO ausgaben (date, object, price, store ) VALUE (?, ?, ?, ?)")){
-									$stmt->bind_param('ssds', $date, $object, $price, $store);
+								if( $stmt = $conection->prepare("INSERT INTO ausgaben (shop_uid, shop_price, shop_object, shop_store, shop_date_bought, shop_time_add) VALUE (?, ?, ?, ?, ?, ?)")){
+									$stmt->bind_param('ssssss', $shop_uid, $shop_price, $shop_object, $shop_store, $shop_date_bought, $shop_time_add);
 												
-									$date = $_POST['date'];
-									$object = $_POST['object'];
-									$price = $_POST['price'];
-									$store = $_POST['store'];
+									$shop_uid = $_SESSION['u_id'];
+									$shop_price = $_POST['shopprice'];
+									$shop_object = $_POST['shopobject'];
+									$shop_store = $_POST['shopstore'];
+									$shop_date_bought = $_POST['shopdatebought'];
+									$shop_time_add = $datum.'/'.$uhrzeit;
 												
 									if( !$stmt->execute()){
 										return false;
 									}
 								} else {
 									// for debugging purposes use: v
-									var_dump($mysqli->error); exit;
+									var_dump($conection->error); exit;
 									return false;
 								}
 							}							
@@ -89,16 +107,16 @@ var_dump($_SESSION['userid']);
 					 
 					<form action="?send=1" method="post">
 						Preis:<br>
-						<input type="text" size="40" maxlength="250" name="price"><br><br>
+						<input type="text" size="40" maxlength="250" name="shopprice"> €<br><br>
 						
 						Objekt:<br>
-						<input type="text" size="40" maxlength="250" name="object"><br><br>
-						
-						Datum:<br>
-						<input type="text" size="40"  maxlength="250" name="date" id="datepicker"><br>
+						<input type="text" size="40" maxlength="250" name="shopobject"><br><br>
 						
 						Laden:<br>
-						<input type="text" size="40"  maxlength="250" name="store"><br>
+						<input type="text" size="40"  maxlength="250" name="shopstore"><br><br>
+						
+						Kaufdatum:<br>
+						<input type="text" size="40"  maxlength="250" name="shopdatebought" id="datepicker"><br><br>
 						
 						<input type="submit" value="Abschicken">
 					</form>
@@ -132,7 +150,7 @@ var_dump($_SESSION['userid']);
 		});
 		$(document).ready(function(){
 			$("#datepicker").datepicker({
-				dateFormat: "yy.mm.dd"
+				dateFormat: "dd.mm.yy"
 			});
 			
 		});

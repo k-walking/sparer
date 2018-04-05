@@ -1,12 +1,8 @@
 <?php
 session_start();
 if(!isset($_SESSION['userid'])) {
-	die('Bitte zuerst <a href="login.php">einloggen</a>');
+	die('Bitte zuerst <a href="sidebar_default.php">einloggen</a>');
 }
-
-var_dump($_SESSION['userid']);
-
-$mysqli = new mysqli( 'localhost', 'root', '', 'test2');
 
 //errrorhandler
 $error = false;

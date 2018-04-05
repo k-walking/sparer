@@ -1,6 +1,3 @@
-<?php
-
-?>
 
  <!-- Sidebar -->
 <div class="row">

@@ -1,6 +1,3 @@
-<?php
-
-?>
 
  <!-- Sidebar -->
 <div class="row">
@@ -18,10 +15,16 @@
 					<a href="#">Haushaltsrechner</a>
 				</li>             
 				<li>
-					<a href="signup.php">Registrieren</a>
+					<a href="ausgaben.php">Ausgaben</a>
 				</li>
 				<li>
-					<a href="information.php">Information</a>
+					<a href="">Einnahmen</a>
+				</li>
+				<li>
+					<a href="agreements.php">Verträge</a>
+				</li>
+				<li>
+					<a href="setting.php">Einstellungen</a>
 				</li>
 			</div>			
 		
