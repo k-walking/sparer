@@ -1,14 +1,9 @@
-
-
 <?php 
 session_start();
 $mysqli = new mysqli( 'localhost', 'root', '', 'test2');
 
 $statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");
 /*die(var_dump($statement));*/
-
-	
-
 
 ?>
 <!DOCTYPE html>
@@ -41,32 +36,12 @@ $statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");
     <![endif]-->
 
 </head>
-
 <body>
 
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Haushaltsrechner
-                    </a>
-                </li>             
-                <li>
-                    <a href="registrierung.php">Registrieren</a>
-                </li>
-                <li>
-                    <a href="login.php">Anmelden</a>
-                </li>
-				<li>
-                    <a href="calculation.php">Rechner</a>
-                </li>
-							
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+        <?php include ("sidebar_usr.php"); ?>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -74,8 +49,6 @@ $statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");
                 <div class="row">
                     <div class="col-lg-12">
 						
-
-						 
 						<?php
 						$showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
 						 
@@ -163,8 +136,6 @@ $statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");
 						<?php
 						} //Ende von if($showFormular)
 						?>
-
-						
                     </div>
                 </div>
             </div>
@@ -191,8 +162,3 @@ $statement = $mysqli->prepare("SELECT * FROM users WHERE email = :email");
 </body>
 
 </html>
- 
-<?php 
-
-?>
- 

@@ -135,7 +135,13 @@ h3 {
 	border-radius: 0px !important;
 	width:auto;
 	margin-left:auto !important;
-	margin-right:auto !important;}
+	margin-right:auto !important;
+}
+
+/*Sidebar elements*/
+.toggle-btn {
+	border-radius: 0px !important; 
+}
 
 
 

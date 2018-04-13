@@ -1,20 +1,15 @@
 <?php
 session_start();
-$pdo = NEW PDO ('mysql:host0localhost, dbname=test2', 'root');
-if(!isset($_SESSION['userid'])) {
+
+if(!isset($_SESSION['u_id'])) {
 	die('Bitte zuerst <a href="login.php">einloggen</a>');
 }
-
-// Nutzerdaten aus profile ziehen
-$sql = $pdo->prepare("SELECT * FROM profile WHERE id ='" . $_SESSION['userid'] . "' ");
-
- ?>
+?>
  
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
@@ -31,6 +26,9 @@ $sql = $pdo->prepare("SELECT * FROM profile WHERE id ='" . $_SESSION['userid'] .
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+	
+	<!-- FontAwesome CSS -->
+	<link href="css/font-awesome/css/fontawesome-all.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,31 +40,25 @@ $sql = $pdo->prepare("SELECT * FROM profile WHERE id ='" . $_SESSION['userid'] .
 </head>
 
 <body>
-
     <div id="wrapper">
 
-        <?php include ("sidebar.php"); ?>
+        <?php include ("sidebar_usr.php"); ?>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-						<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+						
 						<?php
 						if(isset($_GET['konto'])) {
 								$kontoname = $_POST['kname'];
 								$kontonummer = $_POST['knummer'];
 								$kontostand = $_POST['wert'];
-								$userid = $_SESSION['userid'];
-								
-								
-								
-								
+								$userid = $_SESSION['userid'];																
+																
 								$statement = $pdo->prepare("INSERT INTO konten WHERE id ='" . $_SESSION['userid'] . "' (kontoname, kontonummer, kontostand) VALUES (:kontoname, :kontonummer, :kontostand)");
-								$result = $statement->execute(array('kontoname' => $kontoname, 'kontonummer' => $kontonummer, 'kontostand' => $kontostand));
-								
-							
+								$result = $statement->execute(array('kontoname' => $kontoname, 'kontonummer' => $kontonummer, 'kontostand' => $kontostand));															
 							}
 						?>
                         <h1>Einstellungen</h1>
@@ -105,6 +97,11 @@ $sql = $pdo->prepare("SELECT * FROM profile WHERE id ='" . $_SESSION['userid'] .
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+	$(document).ready(function(){
+		$("#menu-toggle").click(function(){
+			$("#menu-toggle").toggleClass("glyphicon-menu-left glyphicon-menu-right");
+		});
+	});
     </script>
 
 </body>

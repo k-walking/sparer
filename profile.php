@@ -44,7 +44,7 @@ echo $_SESSION['userid'];
 
     <div id="wrapper">
 
-       <?php include ("sidebar.php"); ?>
+       <?php include ("sidebar_usr.php"); ?>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">

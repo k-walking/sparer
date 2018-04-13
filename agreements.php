@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['userid'])) {
+if(!isset($_SESSION['u_id'])) {
 	die('Bitte zuerst <a href="sidebar_default.php">einloggen</a>');
 }
 
@@ -53,7 +53,7 @@ $kal_ende_tag = date("N", mktime(0,0,0,date("n",$kal_datum),$kal_tage_gesamt,dat
 
     <div id="wrapper">
 
-        <?php include ("sidebar.php"); ?>
+        <?php include ("sidebar_usr.php"); ?>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">

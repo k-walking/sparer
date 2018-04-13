@@ -28,9 +28,7 @@
 
 </head>
 <body>
-
     <div id="wrapper">
-
         <?php include('sidebar_default.php');?>
 
         <!-- Page Content -->
@@ -47,15 +45,19 @@
 							<div class="form-group custom-form-group">
 								<input name="first" type="text" class="form-control custom-form" id="" aria-describedby="emailHelp" placeholder="Firstname">
 							</div>
+							
 							<div class="form-group custom-form-group">
 								<input name="email" type="email" class="form-control custom-form" id="" aria-describedby="emailHelp" placeholder="Email">
 							</div>
+							
 							<div class="form-group custom-form-group">
 								<input name="username" type="text" class="form-control custom-form" id="" aria-describedby="emailHelp" placeholder="Username">
 							</div>
+							
 							<div class="form-group custom-form-group">
 								<input name="pwd" type="password" class="form-control custom-form" id="" aria-describedby="emailHelp" placeholder="Password">
 							</div>
+							
 							<div class="form-group custom-form-group">
 								<input name="pwd_check" type="password" class="form-control custom-form" id="" placeholder="Repeat Password">
 								<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -68,10 +70,7 @@
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -86,9 +85,7 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-
 </body>
-
 </html>
 
  

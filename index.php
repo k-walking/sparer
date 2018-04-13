@@ -55,7 +55,6 @@
 								echo 'you are logged in';
 							}
 						?>
-                        
                     </div>
                 </div>
             </div>
